@@ -1,0 +1,276 @@
+:root {
+    --primary-color: #1DA1F2;
+    --background-color: #ffffff;
+    --text-color: #14171A;
+    --border-color: #E1E8ED;
+    --error-color: #E0245E;
+    --success-color: #17BF63;
+}
+
+body {
+    background-color: #f5f8fa;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Autenticação */
+.auth-box {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.twitter-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.auth-box h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-form input {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.auth-form button:hover {
+    background-color: #1a91da;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.auth-form a {
+    color: var(--primary-color);
+}
+
+/* Header e Navegação */
+header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo-container {
+    margin-bottom: 0;
+}
+
+nav .twitter-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Formulário de Postagem */
+.post-form {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.post-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#char-count {
+    color: #657786;
+}
+
+#post-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Lista de Postagens */
+.post {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    font-weight: bold;
+}
+
+.post-date {
+    color: #657786;
+    font-size: 14px;
+}
+
+.post-content {
+    margin-bottom: 15px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.post-actions button {
+    color: #657786;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Perfil */
+.profile-info {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#edit-profile-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#edit-profile-form {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#edit-profile-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#edit-profile-form button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#cancel-edit {
+    background-color: #E1E8ED;
+    color: var(--text-color);
+}
+
+/* Utilitários */
+.hidden {
+    display: none !important;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .auth-box {
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    nav {
+        padding: 0 10px;
+    }
+
+    .post-form {
+        padding: 15px;
+    }
+} 
