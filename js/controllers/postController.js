@@ -1,3 +1,5 @@
+import { renderPosts, updateCharCount } from '../views/postView.js';
+
 class PostController {
     constructor() {
         this.postForm = document.querySelector('.post-form');
@@ -35,9 +37,7 @@ class PostController {
     }
 
     updateCharCount() {
-        const remaining = 280 - this.newPostInput.value.length;
-        this.charCount.textContent = remaining;
-        this.charCount.style.color = remaining < 50 ? 'var(--error-color)' : '#657786';
+        updateCharCount(this.newPostInput);
     }
 
     async loadPosts() {
@@ -63,28 +63,7 @@ class PostController {
     }
 
     renderPosts(posts) {
-        this.postsContainer.innerHTML = '';
-        const currentUser = JSON.parse(localStorage.getItem('user'));
-
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = 'post';
-            postElement.innerHTML = `
-                <div class="post-header">
-                    <span class="post-author">@${post.author.username}</span>
-                    <span class="post-date">${this.formatDate(post.createdAt)}</span>
-                </div>
-                <div class="post-content">${post.content}</div>
-                ${post.author._id === currentUser.id ? `
-                    <div class="post-actions">
-                        <button onclick="postController.handleDeletePost('${post._id}')">
-                            Excluir
-                        </button>
-                    </div>
-                ` : ''}
-            `;
-            this.postsContainer.appendChild(postElement);
-        });
+        renderPosts(posts);
     }
 
     formatDate(dateString) {
@@ -97,4 +76,6 @@ class PostController {
             minute: '2-digit'
         });
     }
-} 
+}
+
+export { PostController }; 

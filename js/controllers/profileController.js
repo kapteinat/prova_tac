@@ -1,3 +1,5 @@
+import { showProfile, showMainContainer as showMainContainerView, showEditForm, hideEditForm, renderUserPosts } from '../views/profileView.js';
+
 class ProfileController {
     constructor() {
         this.profileContainer = document.querySelector('#profile-container');
@@ -20,26 +22,22 @@ class ProfileController {
         this.editProfileForm.addEventListener('submit', this.handleProfileUpdate.bind(this));
     }
 
-    async showProfile() {
-        this.mainContainer.classList.add('hidden');
-        this.profileContainer.classList.remove('hidden');
-        await this.loadProfile();
-        await this.loadUserPosts();
+    showProfile() {
+        showProfile(this.mainContainer, this.profileContainer);
+        this.loadProfile();
+        this.loadUserPosts();
     }
 
     showMainContainer() {
-        this.profileContainer.classList.add('hidden');
-        this.mainContainer.classList.remove('hidden');
+        showMainContainerView(this.profileContainer, this.mainContainer);
     }
 
     showEditForm() {
-        this.editProfileBtn.classList.add('hidden');
-        this.editProfileForm.classList.remove('hidden');
+        showEditForm(this.editProfileBtn, this.editProfileForm);
     }
 
     hideEditForm() {
-        this.editProfileForm.classList.add('hidden');
-        this.editProfileBtn.classList.remove('hidden');
+        hideEditForm(this.editProfileForm, this.editProfileBtn);
     }
 
     async loadProfile() {
@@ -80,29 +78,7 @@ class ProfileController {
     }
 
     renderUserPosts(posts) {
-        this.profilePostsContainer.innerHTML = '';
-        
-        if (posts.length === 0) {
-            this.profilePostsContainer.innerHTML = '<p>Você ainda não fez nenhuma postagem.</p>';
-            return;
-        }
-
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = 'post';
-            postElement.innerHTML = `
-                <div class="post-header">
-                    <span class="post-date">${this.formatDate(post.createdAt)}</span>
-                </div>
-                <div class="post-content">${post.content}</div>
-                <div class="post-actions">
-                    <button onclick="postController.handleDeletePost('${post._id}')">
-                        Excluir
-                    </button>
-                </div>
-            `;
-            this.profilePostsContainer.appendChild(postElement);
-        });
+        renderUserPosts(posts, this.profilePostsContainer);
     }
 
     formatDate(dateString) {
@@ -115,4 +91,6 @@ class ProfileController {
             minute: '2-digit'
         });
     }
-} 
+}
+
+export { ProfileController }; 

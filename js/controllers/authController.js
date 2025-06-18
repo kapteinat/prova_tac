@@ -1,3 +1,5 @@
+import { showRegister, showLogin, showAuthContainer, showMainContainer } from '../views/authView.js';
+
 class AuthController {
     constructor() {
         this.loginForm = document.querySelector('#login-form form');
@@ -58,25 +60,22 @@ class AuthController {
     }
 
     showRegister() {
-        document.querySelector('#login-form').classList.add('hidden');
-        document.querySelector('#register-form').classList.remove('hidden');
+        showRegister();
     }
 
     showLogin() {
-        document.querySelector('#register-form').classList.add('hidden');
-        document.querySelector('#login-form').classList.remove('hidden');
+        showLogin();
     }
 
     showAuthContainer() {
-        document.querySelector('#auth-container').classList.remove('hidden');
-        document.querySelector('#main-container').classList.add('hidden');
-        document.querySelector('#profile-container').classList.add('hidden');
+        showAuthContainer();
     }
 
     showMainContainer() {
-        document.querySelector('#auth-container').classList.add('hidden');
-        document.querySelector('#main-container').classList.remove('hidden');
-        document.querySelector('#profile-container').classList.add('hidden');
+        showMainContainer();
+        if (window.postController) {
+            window.postController.loadPosts();
+        }
     }
 
     checkAuth() {
@@ -87,4 +86,6 @@ class AuthController {
             this.showAuthContainer();
         }
     }
-} 
+}
+
+export { AuthController }; 
